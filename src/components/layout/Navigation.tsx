@@ -45,23 +45,38 @@ export function Navigation() {
           ? "bg-background/85 backdrop-blur-md shadow-lg"
           : "bg-background/50 backdrop-blur-sm"
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="relative group">
+          <a href="#home" className="relative group" aria-label="Back to top">
             <span className="text-lg font-bold bg-gradient-to-r from-yellow-300/90 to-yellow-500/90 bg-clip-text text-transparent">
               Isaac Hughes
             </span>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400/90 transition-all group-hover:w-full" />
+            <span
+              className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400/90 transition-all group-hover:w-full"
+              aria-hidden="true"
+            />
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-1">
+          <ul
+            className="hidden md:flex items-center gap-1"
+            role="menubar"
+            aria-label="Desktop navigation"
+          >
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.href} role="none">
                 <a
                   href={item.href}
+                  role="menuitem"
+                  aria-current={
+                    activeSection === item.href.substring(1)
+                      ? "page"
+                      : undefined
+                  }
                   className={`relative px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 
                     ${
                       activeSection === item.href.substring(1)
@@ -71,7 +86,10 @@ export function Navigation() {
                 >
                   <span className="relative z-10">{item.label}</span>
                   {activeSection === item.href.substring(1) && (
-                    <span className="absolute inset-0 bg-yellow-400/90 rounded-md -z-0 transition-transform" />
+                    <span
+                      className="absolute inset-0 bg-yellow-400/90 rounded-md -z-0 transition-transform"
+                      aria-hidden="true"
+                    />
                   )}
                 </a>
               </li>
@@ -82,9 +100,14 @@ export function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-md hover:bg-foreground/10 transition-colors"
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
+            <div
+              className="w-6 h-5 relative flex flex-col justify-between"
+              aria-hidden="true"
+            >
               <span
                 className={`w-full h-0.5 bg-current transform transition-all duration-300 ${
                   isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
@@ -106,18 +129,27 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         <div
+          id="mobile-menu"
           className={`md:hidden transition-all duration-300 ease-in-out ${
             isMobileMenuOpen
               ? "max-h-64 opacity-100"
               : "max-h-0 opacity-0 pointer-events-none"
           }`}
+          role="menu"
+          aria-label="Mobile navigation"
         >
-          <ul className="py-4 space-y-2">
+          <ul className="py-4 space-y-2" role="presentation">
             {navItems.map((item) => (
-              <li key={item.href}>
+              <li key={item.href} role="none">
                 <a
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
+                  role="menuitem"
+                  aria-current={
+                    activeSection === item.href.substring(1)
+                      ? "page"
+                      : undefined
+                  }
                   className={`block px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                     activeSection === item.href.substring(1)
                       ? "bg-yellow-400/90 text-background"

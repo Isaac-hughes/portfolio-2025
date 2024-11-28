@@ -1,11 +1,5 @@
 "use client";
-
 import { useEffect, useState } from "react";
-
-interface FlipCharacterProps {
-  char: string;
-  delay: number;
-}
 
 const FlipCharacter = ({ char, delay }: FlipCharacterProps) => {
   const [isFlipping, setIsFlipping] = useState(false);

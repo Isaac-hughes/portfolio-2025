@@ -2,17 +2,6 @@
 
 import { Container } from "@/components/ui/Container";
 
-interface Skill {
-  name: string;
-  description: string;
-}
-
-interface SkillCategory {
-  title: string;
-  description: string;
-  skills: Skill[];
-}
-
 const skillCategories: SkillCategory[] = [
   {
     title: "Frontend Development",

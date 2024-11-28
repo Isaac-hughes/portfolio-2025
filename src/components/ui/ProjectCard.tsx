@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -23,10 +25,11 @@ export function ProjectCard({
       {image && (
         <div className="relative h-56 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/90" />
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-fit transform group-hover:scale-105 transition-transform duration-500"
+            fill
+            className="object-cover transform group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute top-4 right-4">
             <span className="px-4 py-1.5 rounded-full text-xs font-mono bg-accent-primary/20 text-accent-primary">

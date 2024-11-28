@@ -46,8 +46,8 @@ export function Projects() {
             Featured Projects
           </h2>
           <p className="text-foreground/70 text-lg leading-relaxed">
-            A selection of projects I've worked on, showcasing my expertise in
-            full-stack development and modern web technologies.
+            A selection of projects I&apos;ve worked on, showcasing my expertise
+            in full-stack development and modern web technologies.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

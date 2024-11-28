@@ -4,20 +4,6 @@ import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { useState } from "react";
 
-interface WorkExperienceProps {
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-  achievements: string[];
-}
-
-interface SocialLink {
-  name: string;
-  url: string;
-  icon: JSX.Element;
-}
-
 const workHistory: WorkExperienceProps[] = [
   {
     title: "Founder & CEO/CTO",
@@ -157,9 +143,14 @@ export function About() {
               </h2>
               <div className="space-y-4 text-foreground/80">
                 <p className="text-lg">
-                  Experienced frontend developer with a proven track record in
-                  building exceptional digital experiences. Specialized in
-                  React, Next.js, and modern web technologies.
+                  Well-rounded software developer with expertise in React,
+                  Next.js, and modern web technologies, complemented by backend
+                  experience with Node.js and MongoDB. As the founder of Circle
+                  Club, I designed and delivered a full-stack platform,
+                  showcasing my ability to build scalable, high-performance
+                  solutions. Passionate about clean code, rigorous testing, and
+                  accessibility, I focus on creating impactful, user-centric
+                  digital experiences.
                 </p>
 
                 {/* Social Links */}
