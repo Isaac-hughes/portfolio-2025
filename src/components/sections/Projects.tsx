@@ -4,20 +4,53 @@ import { ProjectCard } from "@/components/ui/ProjectCard";
 const projects = [
   {
     title: "Circle Club",
-    description: "Full-stack MVP with advanced third-party API integrations.",
-    tags: ["React", "Node.js", "MongoDB", "API Integration"],
+    description:
+      "A full-stack platform connecting influencers with brands for partnership opportunities. Features include real-time chat, social media verification, and secure payment processing.",
+    tags: ["Next.js", "Node.js", "MongoDB", "TikTok API", "Meta API", "AWS"],
     link: "#",
-    image: "/circle-club.svg",
+    image: "/circle-club-logo.svg",
+    features: [
+      "Real-time chat system with typing indicators",
+      "Social media account verification",
+      "Secure payment processing with Stripe",
+      "Cloud storage integration with AWS S3",
+      "Responsive dashboard interface",
+    ],
+    status: "Completed 2024",
+  },
+  {
+    title: "NHS Patient Portal",
+    description:
+      "A healthcare management system built for InHealth Intelligence, enabling patients to access screening results and manage appointments efficiently.",
+    tags: ["React", "Next.js", "TypeScript", "Jest", "REST API"],
+    link: "#",
+    image: "/nhs-portal.png",
+    features: [
+      "Secure patient authentication",
+      "Appointment scheduling system",
+      "Test results viewer",
+      "Automated notifications",
+      "Accessibility compliance",
+    ],
+    status: "Production",
   },
   // Add more projects as needed
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 bg-foreground/[0.02]">
+    <section id="projects" className="py-20">
       <Container>
-        <h2 className="text-3xl font-bold mb-12">Featured Projects</h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="max-w-4xl mx-auto mb-12">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
+          <p className="text-foreground/70 text-lg">
+            A selection of projects I've worked on, showcasing my expertise in
+            full-stack development and modern web technologies.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}

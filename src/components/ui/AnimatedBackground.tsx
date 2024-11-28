@@ -7,7 +7,6 @@ export function AnimatedBackground() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if we're on mobile
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -15,7 +14,6 @@ export function AnimatedBackground() {
     checkMobile();
     window.addEventListener("resize", checkMobile);
 
-    // Only add mousemove listener if not mobile
     if (!isMobile) {
       const handleMouseMove = (e: MouseEvent) => {
         const x = (e.clientX / window.innerWidth) * 100;
@@ -33,9 +31,7 @@ export function AnimatedBackground() {
   return (
     <div className="fixed inset-0 -z-10">
       <div
-        className={`absolute inset-0 transition-all duration-[1500ms] ease-out
-                    bg-gradient-to-br from-accent-primary/10 via-background to-accent-secondary/10
-                    ${isMobile ? "animate-gradient-mobile" : ""}`}
+        className="absolute inset-0 transition-all duration-[1500ms] ease-out bg-gradient-to-br from-accent-primary/10 via-background to-accent-secondary/10"
         style={
           !isMobile
             ? {
@@ -51,7 +47,6 @@ export function AnimatedBackground() {
         }
       />
 
-      {/* Subtle grid overlay */}
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
