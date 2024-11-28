@@ -13,6 +13,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --accent-primary: rgba(0, 255, 157, 0.5);
+    --accent-secondary: rgba(0, 213, 255, 0.5);
   }
 }
 
@@ -20,4 +22,122 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -50px) rotate(2deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(-1deg);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-gradient {
+  background: linear-gradient(
+    270deg,
+    var(--accent-primary),
+    var(--accent-secondary),
+    var(--accent-primary)
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
+
+.animate-when-visible {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-when-visible.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-blob-spin {
+  animation: blob-spin 20s linear infinite;
+}
+
+.animate-blob-spin-slow {
+  animation: blob-spin 30s linear infinite reverse;
+}
+
+@keyframes blob-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-gradient-mobile {
+  background: linear-gradient(
+    45deg,
+    var(--accent-primary) 0%,
+    var(--background) 25%,
+    var(--accent-secondary) 50%,
+    var(--background) 75%,
+    var(--accent-primary) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% auto;
 }
