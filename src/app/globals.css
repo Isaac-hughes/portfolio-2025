@@ -3,21 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent-primary: #fcd34d;
-  --accent-secondary: #fde68a;
-  --accent-muted: #fef3c7;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --accent-primary: rgba(252, 211, 77, 0.9);
-    --accent-secondary: rgba(253, 230, 138, 0.7);
-    --accent-muted: rgba(254, 243, 199, 0.1);
-  }
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent-primary: rgba(252, 211, 77, 0.9);
+  --accent-secondary: rgba(253, 230, 138, 0.7);
+  --accent-muted: rgba(254, 243, 199, 0.1);
 }
 
 body {

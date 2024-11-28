@@ -138,6 +138,26 @@ const skillCategories: SkillCategory[] = [
         description:
           "Gathering feedback and aligning technical deliverables with business goals",
       },
+      {
+        name: "Leadership",
+        description:
+          "Guiding teams toward goals with clear communication and mentoring junior developers",
+      },
+      {
+        name: "Adaptability",
+        description:
+          "Thriving in fast-paced environments and adjusting to new tools and technologies seamlessly",
+      },
+      {
+        name: "Time Management",
+        description:
+          "Prioritising tasks effectively to meet project milestones and deadlines",
+      },
+      {
+        name: "Critical Thinking",
+        description:
+          "Evaluating complex technical challenges to make informed decisions that align with strategic goals",
+      },
     ],
   },
 ];

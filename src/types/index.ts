@@ -48,3 +48,11 @@ declare interface FlipCharacterProps {
   char: string;
   delay: number;
 }
+
+declare interface Testimonial {
+  author: string;
+  role: string;
+  company: string;
+  content: string;
+  image?: string;
+}

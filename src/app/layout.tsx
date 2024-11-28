@@ -14,10 +14,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio 2025",
+  title: "Isaac Hughes Portfolio 2025",
   description: "Personal portfolio showcasing my work and experience",
   icons: {
-    icon: "/favicon.png",
+    icon: "favicon.png",
   },
 };
 
@@ -27,9 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{ colorScheme: "dark" }}
       >
         {children}
       </body>
