@@ -14,12 +14,14 @@ const config: Config = {
         accent: {
           primary: "var(--accent-primary)",
           secondary: "var(--accent-secondary)",
+          muted: "var(--accent-muted)",
         },
       },
       animation: {
         "gradient-mobile": "gradientMove 15s ease infinite",
         fadeDown: "fadeDown 0.5s ease-out forwards",
         fadeUp: "fadeUp 0.5s ease-out forwards",
+        flipChar: "flipChar 0.1s linear infinite",
       },
       keyframes: {
         gradientMove: {
@@ -34,6 +36,17 @@ const config: Config = {
         fadeUp: {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        flipChar: {
+          "0%": {
+            transform: "rotateX(0deg)",
+            backgroundColor: "rgba(0,0,0,0.6)",
+          },
+          "50%": { backgroundColor: "rgba(0,0,0,0.8)" },
+          "100%": {
+            transform: "rotateX(360deg)",
+            backgroundColor: "rgba(0,0,0,0.6)",
+          },
         },
       },
       backgroundImage: {
