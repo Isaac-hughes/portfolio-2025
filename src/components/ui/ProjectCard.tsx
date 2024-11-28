@@ -29,7 +29,7 @@ export function ProjectCard({
             src={image}
             alt={title}
             fill
-            className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+            className="object-fit transform group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute top-4 right-4">
             <span className="px-4 py-1.5 rounded-full text-xs font-mono bg-accent-primary/20 text-accent-primary">

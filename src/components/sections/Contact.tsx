@@ -1,8 +1,10 @@
 "use client";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import emailjs from "@emailjs/browser";
+import { toast, Toaster } from "react-hot-toast";
 
 interface FormData {
   name: string;
@@ -20,15 +22,53 @@ export function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // TODO: Implement form submission logic
-    // This could be an API route, Email.js, or other service
+    const loadingToast = toast.loading("Sending message...");
 
-    console.log("Form submitted:", formData);
-    setIsSubmitting(false);
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: "Isaac Hughes",
+        reply_to: formData.email,
+      };
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams
+      );
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+
+      toast.success("Message sent successfully!", {
+        id: loadingToast,
+        duration: 5000,
+        icon: "✅",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Failed to send message. Please try again.", {
+        id: loadingToast,
+        duration: 5000,
+        icon: "❌",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -43,6 +83,30 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-20 text-foreground">
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          className: "bg-background border border-accent-primary/20",
+          style: {
+            padding: "16px",
+            color: "var(--foreground)",
+            backgroundColor: "var(--background)",
+          },
+          success: {
+            iconTheme: {
+              primary: "var(--accent-primary)",
+              secondary: "var(--background)",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ff4b4b",
+              secondary: "var(--background)",
+            },
+          },
+        }}
+      />
+
       <Container>
         <div className="max-w-4xl mx-auto mb-16 text-center">
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">

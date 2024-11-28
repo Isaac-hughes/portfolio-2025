@@ -5,69 +5,138 @@ import { Container } from "@/components/ui/Container";
 const skillCategories: SkillCategory[] = [
   {
     title: "Frontend Development",
-    description: "Building responsive and interactive user interfaces",
+    description:
+      "Building responsive, accessible, and user-friendly interfaces",
     skills: [
       {
         name: "React & Next.js",
         description:
-          "Advanced state management, SSR, and performance optimisation",
+          "Building scalable SPAs and SSR applications with advanced state management, hooks, and performance optimisation",
       },
       {
         name: "TypeScript",
         description:
-          "Type-safe development with advanced features and patterns",
+          "Ensuring robust, type-safe development with generics, utility types, and advanced programming patterns",
       },
       {
         name: "Tailwind CSS",
-        description: "Responsive design and custom component systems",
+        description:
+          "Crafting responsive, mobile-first designs with utility-first CSS and custom theme extensions",
       },
       {
         name: "Angular",
-        description: "Enterprise-level application development",
+        description:
+          "Developing enterprise-grade web applications with a strong focus on modular architecture and RxJS",
+      },
+      {
+        name: "Framer Motion",
+        description:
+          "Implementing fluid animations and transitions to enhance user experience",
+      },
+      {
+        name: "Accessibility (WCAG)",
+        description:
+          "Designing interfaces compliant with WCAG standards for inclusive user experiences",
       },
     ],
   },
   {
     title: "Backend Development",
-    description: "Creating robust and scalable server solutions",
+    description:
+      "Creating secure, robust, and high-performance server solutions",
     skills: [
       {
         name: "Node.js",
-        description: "RESTful APIs and microservices architecture",
+        description:
+          "Developing RESTful APIs, microservices, and real-time applications using WebSockets",
       },
       {
         name: "MongoDB",
-        description: "Database design, optimisation, and aggregation pipelines",
+        description:
+          "Designing efficient schemas, leveraging aggregation pipelines, and indexing for performance",
       },
       {
         name: "GraphQL",
-        description: "Schema design and efficient resolvers",
+        description:
+          "Building flexible APIs with efficient schema design, query optimisation, and resolver implementation",
       },
       {
         name: "AWS Services",
-        description: "Cloud infrastructure and serverless architecture",
+        description:
+          "Leveraging cloud infrastructure for scalable, serverless architectures using Lambda, S3, and DynamoDB",
+      },
+      {
+        name: "Stripe API",
+        description:
+          "Integrating secure payment gateways with subscription management and webhook handling",
+      },
+      {
+        name: "Authentication",
+        description:
+          "Implementing secure OAuth and JWT-based authentication solutions",
       },
     ],
   },
   {
     title: "Development Tools",
-    description: "Utilising modern development workflows",
+    description:
+      "Streamlining development workflows with modern tools and practices",
     skills: [
       {
         name: "Git & GitHub",
-        description: "Version control and collaborative development",
+        description:
+          "Collaborative version control with advanced branching and CI/CD integration",
       },
       {
         name: "Testing",
-        description: "Unit, integration, and E2E testing with Jest and Cypress",
+        description:
+          "Comprehensive unit, integration, and E2E testing with Jest, Vitest, and Cypress",
       },
       {
         name: "Docker",
-        description: "Containerization and deployment strategies",
+        description:
+          "Streamlining development and deployment with containerisation and multi-stage builds",
       },
       {
         name: "CI/CD",
-        description: "Automated testing and deployment pipelines",
+        description:
+          "Automating testing, linting, and deployment pipelines using GitHub Actions and Jenkins",
+      },
+      {
+        name: "SonarCloud",
+        description:
+          "Static code analysis for maintaining high code quality and security standards",
+      },
+      {
+        name: "Prettier & ESLint",
+        description:
+          "Enforcing consistent code formatting and linting to maintain clean codebases",
+      },
+      {
+        name: "Figma",
+        description:
+          "Collaborating on UI/UX designs with pixel-perfect implementation",
+      },
+    ],
+  },
+  {
+    title: "Soft Skills",
+    description: "Enhancing collaboration and delivering value-driven results",
+    skills: [
+      {
+        name: "Agile Methodologies",
+        description:
+          "Driving iterative development through sprints, stand-ups, and retrospectives",
+      },
+      {
+        name: "Cross-Functional Collaboration",
+        description:
+          "Communicating effectively across teams to deliver cohesive, user-centric solutions",
+      },
+      {
+        name: "Stakeholder Engagement",
+        description:
+          "Gathering feedback and aligning technical deliverables with business goals",
       },
     ],
   },
