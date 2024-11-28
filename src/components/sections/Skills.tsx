@@ -86,29 +86,40 @@ const skillCategories: SkillCategory[] = [
 
 function SkillCard({ skill }: { skill: Skill }) {
   return (
-    <div className="p-4 rounded-lg bg-accent-muted/5 border border-accent-primary/10">
-      <h4 className="text-lg font-semibold text-accent-primary mb-2">
+    <div className="group p-6 rounded-lg bg-accent-muted/5 hover:bg-accent-muted/10 transition-all duration-300">
+      <h4 className="text-lg font-semibold text-accent-primary group-hover:text-accent-secondary transition-colors mb-3">
         {skill.name}
       </h4>
-      <p className="text-sm text-foreground/70">{skill.description}</p>
+      <p className="text-sm text-foreground/70 leading-relaxed">
+        {skill.description}
+      </p>
     </div>
   );
 }
 
 function SkillCategory({ category }: { category: SkillCategory }) {
   return (
-    <div className="space-y-6">
-      <div className="border-l-2 border-accent-primary/50 pl-4">
-        <h3 className="text-xl font-bold text-accent-primary mb-2">
-          {category.title}
-        </h3>
-        <p className="text-sm text-foreground/60">{category.description}</p>
+    <div className="relative p-8 rounded-xl border border-accent-primary/10">
+      <div className="mb-8">
+        <div className="inline-block">
+          <h3 className="text-2xl font-bold text-accent-primary mb-3">
+            {category.title}
+          </h3>
+          <div className="h-1 w-full bg-gradient-to-r from-accent-primary/50 to-accent-secondary/50 rounded-full" />
+        </div>
+        <p className="text-foreground/70 mt-4 max-w-3xl">
+          {category.description}
+        </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {category.skills.map((skill) => (
           <SkillCard key={skill.name} skill={skill} />
         ))}
       </div>
+
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-accent-secondary/5 rounded-xl -z-10" />
     </div>
   );
 }
@@ -117,17 +128,18 @@ export function Skills() {
   return (
     <section id="skills" className="py-20">
       <Container>
-        <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+        <div className="max-w-4xl mx-auto mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
             Technical Expertise
           </h2>
-          <p className="text-lg text-foreground/70">
+          <p className="text-lg text-foreground/70 leading-relaxed">
             A comprehensive overview of my technical skills across different
             areas of software development, focusing on modern web technologies
             and best practices.
           </p>
         </div>
-        <div className="space-y-16">
+
+        <div className="space-y-12">
           {skillCategories.map((category) => (
             <SkillCategory key={category.title} category={category} />
           ))}

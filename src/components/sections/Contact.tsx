@@ -42,103 +42,113 @@ export function Contact() {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative py-20 bg-background text-foreground"
-    >
-      <div className="absolute top-0 left-0 w-full h-1 animate-gradient" />
-
+    <section id="contact" className="relative py-20 text-foreground">
       <Container>
+        <div className="max-w-4xl mx-auto mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+            Get In Touch
+          </h2>
+          <p className="text-lg text-foreground/70 leading-relaxed">
+            Have a question or want to work together? Drop me a message!
+          </p>
+        </div>
+
         <div
           ref={ref as React.RefObject<HTMLDivElement>}
           className={`max-w-2xl mx-auto animate-when-visible ${
             isInView ? "is-visible" : ""
           }`}
         >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Get In Touch</h2>
-            <p className="text-foreground/60">
-              Have a question or want to work together? Drop me a message!
-            </p>
+          <div className="relative p-8 rounded-xl border border-accent-primary/10 bg-accent-muted/5">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2 text-foreground/80"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-background border border-accent-primary/20 
+                             focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-transparent
+                             placeholder:text-foreground/40 transition-all duration-200"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2 text-foreground/80"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg bg-background border border-accent-primary/20 
+                             focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-transparent
+                             placeholder:text-foreground/40 transition-all duration-200"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2 text-foreground/80"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-lg bg-background border border-accent-primary/20 
+                           focus:outline-none focus:ring-2 focus:ring-accent-primary/50 focus:border-transparent
+                           placeholder:text-foreground/40 transition-all duration-200 resize-none"
+                  placeholder="Your message..."
+                />
+              </div>
+
+              <div className="flex justify-end">
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="min-w-[150px] bg-yellow-600/90 hover:bg-yellow-500/90 text-black font-mono uppercase tracking-wider transition-all hover:scale-105 active:scale-95"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message →"}
+                </Button>
+              </div>
+            </form>
+
+            {/* Subtle gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-accent-secondary/5 rounded-xl -z-10" />
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/10 
-                         focus:outline-none focus:ring-2 focus:ring-accent-primary/50
-                         placeholder:text-foreground/40"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/10 
-                         focus:outline-none focus:ring-2 focus:ring-accent-primary/50
-                         placeholder:text-foreground/40"
-                placeholder="your.email@example.com"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium mb-2"
-              >
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                rows={5}
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/10 
-                         focus:outline-none focus:ring-2 focus:ring-accent-primary/50
-                         placeholder:text-foreground/40 resize-none"
-                placeholder="Your message..."
-              />
-            </div>
-
-            <div className="flex justify-end">
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                disabled={isSubmitting}
-                className="min-w-[150px]"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </div>
-          </form>
-
-          <div className="mt-12 pt-8 border-t border-foreground/10">
-            <p className="text-center text-foreground/60">
-              You can also reach me directly at{" "}
+          <div className="mt-12 text-center">
+            <p className="text-foreground/60">
+              Prefer email?{" "}
               <a
                 href="mailto:isaachughesbusiness@gmail.com"
-                className="text-accent-primary hover:underline"
+                className="text-accent-primary hover:text-accent-secondary transition-colors font-medium"
               >
                 isaachughesbusiness@gmail.com
               </a>

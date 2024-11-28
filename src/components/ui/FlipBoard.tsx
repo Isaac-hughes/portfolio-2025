@@ -75,19 +75,25 @@ export function FlipBoard({
     setDisplayText(messages[currentIndex]);
   }, [currentIndex, messages]);
 
-  // Return null or a loading state until client-side hydration is complete
   if (!isClient) {
     return <div className={`font-mono ${className}`}>{messages[0]}</div>;
   }
 
+  // Split the text into words and create character groups
+  const words = displayText.split(" ");
+
   return (
-    <div className={`font-mono ${className} flex flex-wrap gap-[2px]`}>
-      {displayText.split("").map((char, idx) => (
-        <FlipCharacter
-          key={`${idx}-${currentIndex}`}
-          char={char}
-          delay={idx * 50 + 500}
-        />
+    <div className={`font-mono ${className} flex flex-wrap`}>
+      {words.map((word, wordIdx) => (
+        <div key={`word-${wordIdx}`} className="flex mr-[0.5ch]">
+          {word.split("").map((char, charIdx) => (
+            <FlipCharacter
+              key={`${wordIdx}-${charIdx}-${currentIndex}`}
+              char={char}
+              delay={charIdx * 50 + wordIdx * 100 + 500}
+            />
+          ))}
+        </div>
       ))}
     </div>
   );

@@ -41,16 +41,16 @@ export function Projects() {
   return (
     <section id="projects" className="py-20">
       <Container>
-        <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
+        <div className="max-w-4xl mx-auto mb-16 text-center">
+          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="text-foreground/70 text-lg">
+          <p className="text-foreground/70 text-lg leading-relaxed">
             A selection of projects I've worked on, showcasing my expertise in
             full-stack development and modern web technologies.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {projects.map((project) => (
             <ProjectCard key={project.title} {...project} />
           ))}
