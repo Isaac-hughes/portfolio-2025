@@ -22,6 +22,7 @@ const config: Config = {
         fadeDown: "fadeDown 0.5s ease-out forwards",
         fadeUp: "fadeUp 0.5s ease-out forwards",
         flipChar: "flipChar 0.1s linear infinite",
+        "border-gradient": "borderGradient 8s ease infinite",
       },
       keyframes: {
         gradientMove: {
@@ -46,6 +47,20 @@ const config: Config = {
           "100%": {
             transform: "rotateX(360deg)",
             backgroundColor: "rgba(0,0,0,0.6)",
+          },
+        },
+        borderGradient: {
+          "0%": {
+            backgroundPosition: "0% 50%",
+            borderColor: "var(--accent-primary)",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+            borderColor: "var(--accent-secondary)",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
+            borderColor: "var(--accent-primary)",
           },
         },
       },

@@ -23,15 +23,16 @@ export function ProjectCard({
     <div className="group relative rounded-lg overflow-hidden border border-accent-primary/10 bg-accent-muted/5 hover:bg-accent-muted/10 transition-all duration-300 shadow-lg flex flex-col h-full">
       {/* Project Image */}
       {image && (
-        <div className="relative h-56 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/90" />
+        <div className="relative w-full h-56">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/90 z-10" />
           <Image
             src={image}
             alt={title}
             fill
-            className="object-fit transform group-hover:scale-105 transition-transform duration-500"
+            className="object-contain p-4 transform group-hover:scale-105 transition-transform duration-500"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 right-4 z-20">
             <span className="px-4 py-1.5 rounded-full text-xs font-mono bg-accent-primary/20 text-accent-primary">
               {status}
             </span>

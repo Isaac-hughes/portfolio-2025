@@ -17,7 +17,7 @@ const projects = [
       "Tailwind CSS",
       "TypeScript",
     ],
-    link: "#",
+    link: "https://circleclub.network",
     image: "/circle-club-logo.svg",
     features: [
       "Real-time messaging with typing indicators and read receipts",
@@ -35,6 +35,39 @@ const projects = [
       "SEO optimised architecture for increased discoverability",
     ],
     status: "MVP Completed 2024",
+  },
+  {
+    title: "Example Stocks Dashboard",
+    description:
+      "An interactive financial dashboard built with modern web technologies, featuring real-time market data visualization, watchlist management, and responsive design. Integrates with the Alpha Vantage API for live stock data and includes fallback mock data generation for demo purposes.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Chart.js",
+      "TanStack Query",
+      "Tailwind CSS",
+      "Alpha Vantage API",
+      "Zod",
+      "React",
+    ],
+    link: "/finance-dashboard",
+    image: "/finance-dashboard/finpal.png",
+    features: [
+      "Real-time stock price tracking with Alpha Vantage API integration",
+      "Interactive price charts with Chart.js visualization",
+      "Customizable watchlist with quick stock selection",
+      "Market overview showing major indices performance",
+      "Responsive layout adapting to all screen sizes",
+      "Elegant loading states and error handling",
+      "Mock data generation for demo purposes",
+      "Type-safe data handling with Zod schemas",
+      "Efficient data caching with TanStack Query",
+      "Market sentiment visualization",
+      "Latest stock news integration",
+      "Clean, modern UI with dark mode support",
+      "Animated transitions and micro-interactions",
+    ],
+    status: "Demo Project 2024",
   },
 ];
 

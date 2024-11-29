@@ -16,29 +16,6 @@ body {
   font-family: var(--font-geist-sans), Arial, sans-serif;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes gradientMove {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes float {
   0%,
   100% {
@@ -54,18 +31,7 @@ body {
 
 .animate-fade-in {
   opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-.animate-gradient {
-  background: linear-gradient(
-    270deg,
-    var(--accent-primary),
-    var(--accent-secondary),
-    var(--accent-primary)
-  );
-  background-size: 200% 200%;
-  animation: gradientMove 15s ease infinite;
+  animation: fadeUp 0.5s ease-out forwards;
 }
 
 .animate-when-visible {
@@ -96,40 +62,10 @@ body {
   }
 }
 
-.animate-gradient-mobile {
-  background: linear-gradient(
-    45deg,
-    var(--accent-primary) 0%,
-    var(--background) 25%,
-    var(--accent-secondary) 50%,
-    var(--background) 75%,
-    var(--accent-primary) 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-}
-
 .delay-200 {
   animation-delay: 200ms;
 }
 
 .delay-300 {
   animation-delay: 300ms;
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  animation: gradient-shift 8s ease infinite;
-  background-size: 200% auto;
 }
