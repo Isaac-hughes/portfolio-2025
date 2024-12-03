@@ -15,10 +15,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Isaac Hughes Portfolio 2025",
+  title: "Isaac Hughes Portfolio",
   description: "Personal portfolio showcasing my work and experience",
   icons: {
-    icon: "favicon.png",
+    icon: "/favicon.png",
   },
 };
 

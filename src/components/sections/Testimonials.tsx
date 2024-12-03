@@ -22,6 +22,14 @@ const testimonials: Testimonial[] = [
       "I’ve had the pleasure of working with Isaac, and I can confidently say he is an outstanding developer with a keen eye for detail and a passion for creating high-performance web applications. Isaac consistently delivers clean, maintainable, and scalable code. Whether it's implementing complex UI/UX features, or integrating with backend APIs, he approaches every task with precision and creativity. He is also up-to-date with the latest best practices and trends in React development, ensuring that projects are not only functional but also modern and future-proof.",
     image: "/testimonials/michal.jpeg",
   },
+  {
+    author: "Beck Davies",
+    role: "Lead UI/UX Designer",
+    company: "InHealth Intelligence",
+    content:
+      "I worked with Isaac at InHealth Intelligence and we worked on several separate UI's together. Isaac demonstrated his talents immediately and continued to make a positive impact throughout his employment. Isaac earned himself the reputation of being a person who can generate ideas, contribute to a product and then deliver - he's a real asset for any company who needs to ship software. He's got so much potential. I hope I get the chance to work with him again in the future.",
+    image: "/testimonials/beck-davies.jpeg",
+  },
 ];
 
 export function Testimonials() {
